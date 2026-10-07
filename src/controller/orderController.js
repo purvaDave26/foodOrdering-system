@@ -10,18 +10,37 @@ const order=async(req,res)=>
         
         if(orders.length>0)
         {
-            orders.forEach((order)=>{
-                let totalamt=0;
-                 order.orderitem.forEach((menu) => {
-        totalamt += Number(menu.itemPrice);
-    });
+            // orders.forEach((order)=>{
+            //     let totalamt=0;
+            //     order.orderitem.forEach((menu) => {
+            //     totalamt += Number(menu.itemPrice);});
+            //      console.log("Total Amount:", totalamt);
+            // })
 
-    console.log("Total Amount:", totalamt);
-            })
-        res.json({
-            message:"order",
-            data:orders
-        })
+             for (const order of orders) {
+
+                let totalamt = 0;
+
+                // Calculate total price
+                order.orderitem.forEach((menu) => {
+                    totalamt += Number(menu.itemPrice);
+                });
+
+                // Store calculated total
+                order.totalamt = totalamt;
+
+                // Save order
+                await order.save();
+
+                console.log("Total Amount:", totalamt);
+            }
+            res.json({
+                message:"order",
+                data:orders
+            })  
+
+
+
     }
     else{
         res.json({
