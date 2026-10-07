@@ -13,6 +13,12 @@ app.use("/user",userRoutes)
 const orderRoutes=require("./src/routes/OrderRoutes")
 app.use("/order",orderRoutes)
 
+const menuRoutes=require("./src/routes/MenuRoutes")
+app.use("/menu",menuRoutes)
+
+const tableRoutes=require("./src/routes/TableRoutes")
+app.use("/table",tableRoutes)
+
 const PORT=3000
 
 app.listen(PORT,()=>

@@ -1,7 +1,7 @@
 const mongooes=require("mongoose")
 const Schema=mongooes.Schema
 
-const menuModel=({
+const menuModel=new Schema({
     menuId:{
         type:String,
         require:true

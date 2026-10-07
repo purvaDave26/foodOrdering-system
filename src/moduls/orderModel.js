@@ -1,12 +1,12 @@
-const mongooes=require("mongoose")
-const Schema=mongooes.Schema
+const mongoose=require("mongoose")
+const Schema=mongoose.Schema
 
-const orderModel=({
+const orderModel=new Schema({
     tableId:{
         type:mongoose.Schema.ObjectId,
-        require:"order"
+        require:"table"
     },
-    fullname:{
+    userId:{
         type:mongoose.Schema.ObjectId,
         ref:"useroredr"
     },
@@ -21,4 +21,4 @@ const orderModel=({
         require:true
     }
 })
-module.exports=mongooes.model("finalorder",orderModel)
+module.exports=mongoose.model("finalorder",orderModel)

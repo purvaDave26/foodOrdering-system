@@ -1,9 +1,10 @@
 const menuModel=require("../moduls/menuModel")
 
-const insetMenu=async(rqe,res)=>
+const getMenu=async(req,res)=>
 {
-    
+     const menu=await menuModel.find()
+        res.json({message:"get menu...",data:menu})
 }
 module.exports={
-    insetMenu
+    getMenu
 }

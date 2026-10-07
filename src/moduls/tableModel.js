@@ -1,11 +1,11 @@
 const mongooes=require("mongoose")
 const Schema=mongooes.Schema
 
-const tableModel=({
+const tableModel=new Schema({
     tableId:{
         type:Number,
         require:true
     },
     
 })
-module.exports=mongooes.model("order",tableModel)
+module.exports=mongooes.model("table",tableModel)
