@@ -59,6 +59,28 @@ const order=async(req,res)=>
     }
 
 }
+const getOrder=async(req,res)=>
+{
+    try {
+          const order=await orderModel.find()
+                res.json({message:"get order...",data:order})
+    } catch (error) {
+        res.json({
+            error:error
+        })
+    }
+}
+
+const updateOrder=async(req,res)=>
+{
+    try {
+        
+    } catch (error) {
+        res.json({
+            error:error
+        })
+    }
+}
 module.exports={
-    order
+    order,getOrder,updateOrder
 }

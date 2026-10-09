@@ -15,6 +15,10 @@ const userModel=new Schema({
     {
         type:String,
         require:true
+    },
+    role:{
+        type:String,
+        enum:["User","Restaurant"]
     }
 })
-module.exports=mongooes.model("useroredr",userModel)
+module.exports=mongooes.model("users",userModel)

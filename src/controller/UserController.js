@@ -6,13 +6,14 @@ const createUser=async(req,res)=>{
         const fullname=req.body.fullname;
         const email=req.body.email;
         const password=req.body.password;
-        const saveduser=await userModel.insertOne({...req.body,fullname:fullname,email:email,password:password})
+        const role=req.body.role;
+        const saveduser=await userModel.insertOne({...req.body,fullname:fullname,email:email,password:password,role:role})
         const token=jwt.sign({id:saveduser._id},secret)
 
         if(saveduser==true)
         {
             res.json({
-                message:"user created   "
+                message:"user created"
             })
         }
     } catch (error) {
