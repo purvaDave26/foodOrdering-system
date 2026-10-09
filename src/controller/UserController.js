@@ -9,11 +9,12 @@ const createUser=async(req,res)=>{
         const role=req.body.role;
         const saveduser=await userModel.insertOne({...req.body,fullname:fullname,email:email,password:password,role:role})
         const token=jwt.sign({id:saveduser._id},secret)
+    //  await userModel.findByIdAndUpdate(saveduser._id,{refreshToken:token})
 
-        if(saveduser==true)
+        if(saveduser)
         {
             res.json({
-                message:"user created"
+                message:"user created"  
             })
         }
     } catch (error) {
