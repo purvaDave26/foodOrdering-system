@@ -19,6 +19,10 @@ const orderModel=new Schema({
     totalamt:{
         type:String,
         require:true
+    },
+    orderStatus:{
+        type:String,
+        enum:["pending","preparing","completed"]
     }
 })
 module.exports=mongoose.model("finalorder",orderModel)
